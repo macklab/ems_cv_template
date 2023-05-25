@@ -1,0 +1,180 @@
+---
+#output: stevetemplates::cv
+output: 
+  pdf_document:
+    template: my-template.tex
+latex_engine: pdflatex
+geometry: margin=1in
+
+title: "CV"
+author: Em Heffernan
+
+jobtitle: "PhD Candidate, University of Toronto"
+fontawesome: yes
+email: e.maeve.heffernan@gmail.com
+# github: svmiller
+# twitter: em_heffernan
+# osf: "Enter 5 digit osf string here"
+phone: "705 434 8655"
+web: emheffernan.github.io
+updated: FALSE
+rdateformat: "`r format(Sys.time(), '%d %b %Y')`"
+
+bibliography: CV_Pubs.bib
+csl: apa-cv.csl
+nocite: (@*)
+
+keywords: R Markdown, academic CV, template
+
+fontfamily: montserrat
+fontfamilyoptions: defaultfam
+fontsize: 10pt
+linkcolor: blue
+urlcolor: blue
+
+params:
+  pdf_mode:
+    value: true
+
+# header-includes:
+#   - \usepackage[defaultfam,tabular,lining]{montserrat}
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(
+  results='asis', 
+  echo = FALSE
+)
+
+library(magrittr) # For the pipe
+library(tinytex)
+source("cv_printing_functions.r")
+library(vitae);library(tibble);library(tufte)
+
+
+# Read in all data and initialize a CV printer object
+CV <- create_CV_object(
+  data_location = "https://docs.google.com/spreadsheets/d/1WgfzqcE2shTZ1QICDNYhCWhuOU8HAZfZwL3r89Ea0b0/edit#gid=917338460",  
+  pdf_mode = params$pdf_mode
+)
+
+```
+
+```{r load_packages, message=FALSE, warning=FALSE, include=FALSE}
+library(fontawesome)
+```
+
+```{r}
+# When in pdf export mode the little dots are unaligned, so fix that with some conditional CSS.
+if(params$pdf_mode) {
+    cat("
+<style>
+:root{
+  --decorator-outer-offset-left: -6.5px;
+}
+</style>")
+}
+```
+
+# `r fa("graduation-cap", fill = "black")` Education
+
+```{r}
+CV %<>% print_section('education')
+```
+
+# `r fa("award", fill = "black")` Awards
+
+```{r}
+CV %<>% print_section('awards')
+```
+
+# `r fa("microscope", fill = "black")` Research Experience
+
+```{r}
+CV %<>% print_section('research_positions')
+```
+
+# `r fa("briefcase", fill = "black")` Industry Experience
+
+<!-- ::: aside -->
+
+<!-- ```{r} -->
+
+<!-- CV %<>% print_text_block('industy_experience_aside') -->
+
+<!-- ``` -->
+
+<!-- ::: -->
+
+```{r}
+CV %<>% print_section('industry_positions')
+```
+
+<!-- These breaks just force a new page so section doesnt get cut off -->
+
+<br> <br> <br>
+
+# `r fa("chalkboard-teacher", fill = "black")` Teaching Experience
+
+<!-- ::: aside -->
+
+<!-- ```{r} -->
+
+<!-- CV %<>% print_text_block('teaching_experience_aside') -->
+
+<!-- ``` -->
+
+<!-- ::: -->
+
+```{r}
+CV %<>% print_section('teaching_positions')
+```
+
+# `r fa("users", fill = "black")` Volunteer Experience
+
+<!-- ::: aside -->
+
+<!-- ```{r} -->
+
+<!-- CV %<>% print_text_block('volunteer_experience_aside') -->
+
+<!-- ``` -->
+
+<!-- ::: -->
+
+```{r}
+CV %<>% print_section('volunteer_experience')
+```
+
+# `r fa("comment-alt", fill = "black")` Presentations
+
+**Academic Talks**
+
+```{r}
+CV %<>% print_section('presentations_talks')
+```
+
+**Posters**
+
+```{r}
+CV %<>% print_section('presentations_posters')
+```
+
+**Other Presentations**
+
+```{r}
+CV %<>% print_section('presentations_other')
+```
+
+<!-- # Peer-reviewed Publications -->
+
+<!-- ```{r} -->
+
+<!-- bibliography_entries("CV_Pubs.bib") -->
+
+<!-- ``` -->
+
+# `r fa("file-alt", fill = "black")` Peer-Reviewed Publications
+<!-- ```{r} -->
+<!-- bibliography_entries("CV_pubs.bib")  -->
+<!-- ``` -->
