@@ -23,7 +23,7 @@ install.packages("tufte")
 install.packages("fontawesome")
 ```
 
-(If this doesn’t work, it’s possible that the following might help):
+If this doesn’t work, it’s possible that the following might help:
 
 ```r
 install.packages(”rsvg”)
@@ -33,7 +33,7 @@ devtools::install_github("nstrayer/datadrivencv")
 
 ## Generating a CV
 
-You can then open the file called “CV_2023.Rmd” and “knit” it (press the yarn icon at the top of your R window). This should generate a pdf of my resume.
+You can then open the file called “CV_2023.Rmd” and “knit” it (press the yarn icon at the top of your R window). This should generate a pdf of my CV.
 
 ## Customizing!
 
