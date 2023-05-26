@@ -21,6 +21,7 @@ install.packages("vitae")
 install.packages("tibble")
 install.packages("tufte")
 install.packages("fontawesome")
+install.packages("googlesheets4")
 ```
 
 If this doesn’t work, it’s possible that the following might help:
