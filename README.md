@@ -1,4 +1,7 @@
 # ems_cv_template
+
+You can see what the template looks [like here](https://github.com/macklab/ems_cv_template/blob/main/CV_2023.pdf)
+
 ## Sources
 
 I pulled from a few different sources to create this! 
