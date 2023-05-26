@@ -47,9 +47,9 @@ The first way to customize this is to change the header. You’ll notice a bunch
 
 ### The Content
 
-All the data in the CV are pulled from a google sheet where I’ve added a bunch of things. My sheet can be found [here](https://docs.google.com/spreadsheets/d/1WgfzqcE2shTZ1QICDNYhCWhuOU8HAZfZwL3r89Ea0b0/edit#gid=917338460). Make a copy of this sheet, then create a shareable link with the setting “Any on the internet with the link can view”. (I think there’s also a way to just generate this from a local .csv file on the original site). 
+All the data in the CV are pulled from a google sheet where I’ve added a bunch of things. My sheet can be found [here](https://docs.google.com/spreadsheets/d/1WgfzqcE2shTZ1QICDNYhCWhuOU8HAZfZwL3r89Ea0b0/edit#gid=917338460). Make a copy of this sheet, then create a shareable link with the setting “Any on the internet with the link can view”. (I think there’s also a way to just generate this from a local .csv file on Nick Strayer's original site). 
 
-Next, replace the link in CV_2023.rmd (at line )with your new link. It will be empty until you fill it with information, but you can use mine as a guide or play around with creating your own headings. 
+Next, replace the link in CV_2023.rmd (at line 57) with your new link. It will be empty until you fill it with information, but you can use mine as a guide or play around with creating your own headings. 
 
 ### The Publications
 
